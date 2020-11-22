@@ -2,7 +2,10 @@ import time
 import binascii
 import random
 import string
-from chess_player_data import username, password
+import json
+import sys
+#from chess_player_data import username, password
+username = json.load(open(sys.argv[1]))["username"]
 post_connect = "https://live2.chess.com/cometd/connect"
 handshake = "https://live.chess.com/cometd/handshake"
 login = "https://www.chess.com/login"
@@ -70,6 +73,7 @@ search_game_data = {
 	"clientId" : ""
 }
 
+"""
 login_data = {
 	"_username" : username,
 	"_password" : password,
@@ -77,6 +81,8 @@ login_data = {
 	"_target_path" : "https://www.chess.com/home",
 	"_token" : ""
 }
+"""
+# ^ this isnt used when connecting with phpsessid
 
 handshake_data = {
 	"version" : "1.0",

@@ -62,7 +62,7 @@ def init_game_data():
 	return
 
 """
-bord is as
+board is as
    (1, 2, 3...)
  A
  B

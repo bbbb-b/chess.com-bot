@@ -92,9 +92,10 @@ std::ostream & operator<<(std::ostream &out, const ChessBoard &b) {
 		}
 		out << "\n";
 	}
+	return out;
 }
 std::ostream & operator<<(std::ostream &out, const std::pair<int, int> p) {
-	out << p.first << " " << p.second;
+	return out << p.first << " " << p.second;
 }
 #define PAWN 1
 #define QUEEN 5

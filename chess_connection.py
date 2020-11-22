@@ -5,8 +5,9 @@ import time
 import asyncio
 import json
 from chess_data import *
-from chess_player_data import sessid
+#from chess_player_data import sessid
 session = requests.Session()
+
 def json_str(data):
 	return json.dumps(data, indent = 1, sort_keys = True)
 
@@ -45,7 +46,7 @@ def do_send_challenge_accept(c_id):
 
 def do_login():
 	global session
-	session.cookies.set(domain = ".chess.com", name = "PHPSESSID", value = sessid)
+	session.cookies.set(domain = ".chess.com", name = "PHPSESSID", value = json.load(open(sys.argv[1]))["PHPSESSID"])
 	return;
 	uagent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
 	h0 = {

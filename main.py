@@ -2,8 +2,10 @@
 import time
 from chess_connection import *
 from chess_player import *
+import json
 import sys
 logfile = "logfile.txt"
+
 def log(s, end = "\n"):
 	with open(logfile, "a") as f:
 		f.write(str(s) + end)
@@ -23,6 +25,7 @@ def log_invalid_move(s, end = "\n"):
 		f.write(str(s) + "\n")
 
 def main():
+	json.load(open(sys.argv[1]))["PHPSESSID"] # crashses at the start if something is wrong
 	global _handshake_data
 	wait_chally = False
 	# change this if you want the account instead wait or accept an incoming match request
